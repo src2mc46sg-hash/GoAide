@@ -1,5 +1,16 @@
 import SwiftUI
 
+private struct ReturnToHomeActionKey: EnvironmentKey {
+    static let defaultValue: () -> Void = {}
+}
+
+extension EnvironmentValues {
+    var returnToHome: () -> Void {
+        get { self[ReturnToHomeActionKey.self] }
+        set { self[ReturnToHomeActionKey.self] = newValue }
+    }
+}
+
 enum GOAideColors {
     static let blue = Color(red: 0.0, green: 0.23, blue: 0.57)
     static let brightBlue = Color(red: 0.0, green: 0.39, blue: 0.86)

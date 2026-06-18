@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct ReviewView: View {
+    @Environment(\.returnToHome) private var returnToHome
     @State private var rating = 5
     @State private var comment = "Merci beaucoup pour votre aide."
 
@@ -24,7 +25,9 @@ struct ReviewView: View {
                     .padding(10)
                     .background(GOAideColors.card)
                     .clipShape(RoundedRectangle(cornerRadius: 8))
-                PrimaryButton(title: "Envoyer l'avis") {}
+                PrimaryButton(title: "Envoyer l'avis") {
+                    returnToHome()
+                }
             }
             .padding(20)
         }

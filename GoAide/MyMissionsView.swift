@@ -63,6 +63,8 @@ struct MissionInProgressView: View {
 }
 
 struct MissionCompleteView: View {
+    @Environment(\.returnToHome) private var returnToHome
+
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
@@ -84,6 +86,9 @@ struct MissionCompleteView: View {
                         .foregroundStyle(.white)
                         .background(GOAideColors.brightBlue)
                         .clipShape(RoundedRectangle(cornerRadius: 8))
+                }
+                SecondaryButton(title: "Retour à l'accueil") {
+                    returnToHome()
                 }
             }
             .padding(20)

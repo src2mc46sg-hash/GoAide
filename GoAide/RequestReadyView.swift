@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct RequestReadyView: View {
-    @Environment(\.dismiss) private var dismiss
+    @Environment(\.returnToHome) private var returnToHome
 
     var body: some View {
         ScrollView {
@@ -18,7 +18,7 @@ struct RequestReadyView: View {
                     .foregroundStyle(GOAideColors.muted)
                     .multilineTextAlignment(.center)
                 Button {
-                    dismiss()
+                    returnToHome()
                 } label: {
                     Text("Retour à l'accueil")
                         .font(.system(size: 15, weight: .semibold))

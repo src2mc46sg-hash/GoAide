@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct ReportView: View {
+    @Environment(\.returnToHome) private var returnToHome
     @State private var reason = "Comportement inapproprié"
     @State private var details = ""
 
@@ -14,7 +15,9 @@ struct ReportView: View {
                     .padding(10)
                     .background(GOAideColors.card)
                     .clipShape(RoundedRectangle(cornerRadius: 8))
-                PrimaryButton(title: "Envoyer le signalement", color: GOAideColors.red) {}
+                PrimaryButton(title: "Envoyer le signalement", color: GOAideColors.red) {
+                    returnToHome()
+                }
             }
             .padding(20)
         }
