@@ -75,24 +75,11 @@ struct LogoView: View {
     var compact = false
 
     var body: some View {
-        VStack(spacing: compact ? 8 : 18) {
-            ZStack {
-                Circle()
-                    .fill(Color.cyan)
-                    .frame(width: compact ? 52 : 110, height: compact ? 52 : 110)
-                    .offset(x: compact ? -12 : -28)
-                Circle()
-                    .fill(GOAideColors.purple)
-                    .frame(width: compact ? 52 : 110, height: compact ? 52 : 110)
-                    .offset(x: compact ? 12 : 28)
-                Image(systemName: "heart.fill")
-                    .font(.system(size: compact ? 24 : 54, weight: .bold))
-                    .foregroundStyle(.white)
-            }
-            Text("GO'AIDE")
-                .font(.system(size: compact ? 24 : 46, weight: .heavy))
-                .foregroundStyle(GOAideColors.blue)
-        }
+        Image("logo_goaide_figma")
+            .resizable()
+            .scaledToFit()
+            .frame(width: compact ? 118 : 220)
+            .accessibilityLabel("GO'AIDE")
     }
 }
 

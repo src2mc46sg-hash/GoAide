@@ -6,7 +6,7 @@ struct OnboardingView: View {
 
     private let pages = [
         OnboardingPage(title: "Trouver de l'aide,\nrapidement et en\ntoute confiance", subtitle: "", image: "logo"),
-        OnboardingPage(title: "Entraide locale", subtitle: "Trouver de l'aide ou proposer votre aide autour de vous.", image: "person.3.fill"),
+        OnboardingPage(title: "Entraide locale", subtitle: "Trouver de l'aide ou proposer votre aide autour de vous.", image: "onboarding_entraide_figma"),
         OnboardingPage(title: "Géolocalisation", subtitle: "Nous utilisons votre position pour vous montrer l'aide la plus proche.", image: "mappin.and.ellipse"),
         OnboardingPage(title: "Sécurité", subtitle: "Votre sécurité est notre priorité. Nous mettons tout en oeuvre pour vous protéger.", image: "shield.checkered")
     ]
@@ -17,6 +17,11 @@ struct OnboardingView: View {
             if pages[index].image == "logo" {
                 LogoView()
                     .padding(.bottom, 52)
+            } else if index == 1 {
+                Image(pages[index].image)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(maxWidth: 310, maxHeight: 210)
             } else {
                 Image(systemName: pages[index].image)
                     .font(.system(size: 92, weight: .bold))
